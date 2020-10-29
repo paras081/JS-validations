@@ -1,0 +1,33 @@
+<html>
+    <head>
+		<title>Write  a JS validation that matches mobile number must be of 10 digit and starts with 9 digit</title>   
+            
+	</head>
+	<body>  
+        
+        
+        <input id="mobile" type="text">
+        <button onclick="validateMobileNo()">Check Mobile</button>
+        
+        <p id="msg"></p>
+        
+         <script>
+ 
+            function validateMobileNo(){
+                
+                var mobileNo = document.getElementById('mobile').value; 
+                
+                var mobileRegExp=/^[9]\d{9}$/;
+                    var result = mobileNo.match(mobileRegExp);
+
+                     if(result){
+                         document.getElementById('msg').innerHTML="Valid mobile number";
+                     }else{
+                         document.getElementById('msg').innerHTML="Invalid mobile number";
+                          document.getElementById('mobile').value=null; 
+                          document.getElementById('mobile').focus(); 
+                     }
+            }
+            </script>   
+	</body>
+</html>
