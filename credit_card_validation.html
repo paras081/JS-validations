@@ -1,0 +1,42 @@
+<html>
+    <head>
+		<title>credit card Validations & Detection</title>           
+	</head>
+	<body>         
+        <script type="text/javascript">
+            function SetTypeText(number){
+                var typeField = document.getElementById("cardType");
+                typeField.innerHTML = GetCardType(number);
+            }
+            function GetCardType(number){
+            
+                //var re= /^4/;
+                var re= new RegExp("^4");
+                if(number.match(re) != null){
+                    return "Visa";
+                }
+                var re= new RegExp("^(34|37)");
+                if(number.match(re) != null){
+                    return "American Express";
+                }
+               
+                //var re= new RegExp("^(51|52|53|54|55)");
+                var re= new RegExp("^5[1-5]");
+                if(number.match(re) != null){
+                    return "MasterCard";
+                }
+                
+                return "";
+            }
+        </script>   
+        
+        <form>
+            <label>Credit card Number:</label>
+            <input id="ccNumber" onkeypress="SetTypeText(this.value)"/>
+            <label id="cardType"></label>
+            
+            <br/>
+<!--            <input type="submit" value="Test">-->
+        </form>
+	</body>
+</html>
